@@ -29,8 +29,8 @@
                                     include "includes/add_post.php"; 
                                 break;
 
-                                case 2:
-                                    echo "hello 2";
+                                case 'edit_post':
+                                    include "includes/add_post.php";
                                 break;
 
                                 case 3:
@@ -45,6 +45,7 @@
                                 include "includes/view_all_posts.php"; 
 
                             }
+
 
 
 
