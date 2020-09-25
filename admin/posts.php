@@ -25,8 +25,8 @@
                                 $sourse='';
                             }
                             switch($sourse){
-                                case 1:
-                                    echo "hello 1";
+                                case 'add_post':
+                                    include "includes/add_post.php"; 
                                 break;
 
                                 case 2:
