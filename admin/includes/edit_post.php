@@ -11,6 +11,7 @@
         $post_title = $row['post_title'];
         $post_category_id = $row['post_category_id'];
         $post_status = $row['post_status'];
+        $post_image = $row['post_image'];
         $post_content = $row['post_content'];
         $post_tags = $row['post_tags'];
         $post_comment_count = $row['post_comment_count'];
@@ -27,8 +28,27 @@
     </div>
     
     <div class="form-group">
-        <label for="post_category_id">Post Category Id</label>
-        <input value="<?php echo $post_category_id; ?>" type="text" class="form-control" name="post_category_id">
+    <select name="post_category" id="">
+        <?php 
+        
+        $query = "SELECT * FROM categories";
+        $select_categories = mysqli_query($connection, $query);
+           confirmQuery($select_categories);
+        while($row = mysqli_fetch_assoc($select_categories)){
+            $cat_id = $row['cat_id'];    
+            $cat_title = $row['cat_title'];
+            echo "<option value='{$cat_id}'>{$cat_title}</option>";
+        }
+        
+        ?>
+    
+    
+    
+    </select>
+
+
+
+
     </div>
     
     <div class="form-group">
@@ -42,8 +62,7 @@
     </div>
 
     <div class="form-group">
-        <label for="image">Post Image</label>
-        <input type="file" name="image">
+        <img width="100" src="../images/<?php echo $post_image; ?>" alt="image">
     </div>
 
     <div class="form-group">
