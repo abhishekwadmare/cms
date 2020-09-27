@@ -83,7 +83,10 @@
                     $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status, comment_date) ";
                     $query .= "VALUES ($the_post_id, '{$comment_author}', '{$comment_email}', '{$comment_content}', 'unapproved', now())";
 
-                    $create_comment_query = mysqli_query($connection, $query);        
+                    $create_comment_query = mysqli_query($connection, $query); 
+                    
+                    $query = "UPDATE posts SET post_comment_count = post_comment_count + 1 WHERE post_id = {$the_post_id}";
+                    $update_comment_count = mysqli_query($connection, $query);
                 }
              ?>
 
@@ -129,6 +132,7 @@
                 <?php
                     $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} AND comment_status = 'approved' ORDER BY comment_id DESC";
                     $select_comment_query = mysqli_query($connection, $query);
+
                     while ($row = mysqli_fetch_array($select_comment_query)){
                         $comment_date = $row['comment_date'];
                         $comment_content = $row['comment_content'];
