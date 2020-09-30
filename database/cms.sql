@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 26, 2020 at 05:02 PM
+-- Generation Time: Sep 30, 2020 at 06:41 PM
 -- Server version: 5.7.31-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.6
 
@@ -64,7 +64,15 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_status`, `comment_date`) VALUES
-(1, 10, 'Edwin Diaz', 'edwindiaz@gmail.com', 'This is an example comment. Thankyou!', 'approved', '2020-09-26');
+(3, 5, 'abhishek', 'abhi@gmail.com', 'this is an awesome course', 'approved', '2020-09-27'),
+(4, 5, 'vikas', 'vikas@gmail.com', 'fabulous course', 'approved', '2020-09-27'),
+(5, 6, 'shital', 'shital@reddifmail.com', 'php is very beautiful', 'approved', '2020-09-27'),
+(6, 8, 'abhay', 'abhay@yahoo.com', 'oop is very reusable concept', 'approved', '2020-09-27'),
+(7, 5, 'Petter', 'petter@gmail.com', 'This is just another piece of comment. ', 'approved', '2020-09-27'),
+(8, 7, 'anant', 'anant@gmail.com', 'hey there, how you doing ', 'unapproved', '2020-09-27'),
+(9, 6, 'walin', 'walin@gmail.com', 'ia ma walin', 'unapproved', '2020-09-27'),
+(10, 8, 'akash', 'akash@dhag.com', 'this is testing comment', 'unapproved', '2020-09-27'),
+(11, 5, 'count', 'checking@testing.com', 'this is increasing count by 1', 'unapproved', '2020-09-27');
 
 -- --------------------------------------------------------
 
@@ -81,7 +89,7 @@ CREATE TABLE `posts` (
   `post_image` text NOT NULL,
   `post_content` text NOT NULL,
   `post_tags` varchar(255) NOT NULL,
-  `post_comment_count` int(255) NOT NULL,
+  `post_comment_count` int(255) NOT NULL DEFAULT '0',
   `post_status` varchar(255) NOT NULL DEFAULT 'draft'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -90,11 +98,35 @@ CREATE TABLE `posts` (
 --
 
 INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`, `post_date`, `post_image`, `post_content`, `post_tags`, `post_comment_count`, `post_status`) VALUES
-(1, 1, 'Edwins CMS PHP course is awesome', 'Abhishek Wadmare', '2020-09-25', 'image_4.jpg', 'wow i really really like this course   ', 'edwin, javascript, PHP', 0, 'draft'),
-(5, 1, 'Web Bootstrap course', 'Edwin Diaz sir', '2020-09-25', 'image_3.jpg', 'this is an awesome post regarding Bootstrap!!!!         ', 'bootstrap,courses,class,great', 4, 'published'),
-(6, 3, 'Best PHP Course Ever', 'Edwin Diaz', '2020-09-25', 'image_2.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper vel mauris vitae luctus. In volutpat fermentum eros quis dignissim. Mauris quis neque augue. Ut vel mauris mi. Nullam gravida, felis in posuere semper, felis dolor placerat tortor, a laoreet purus purus et dui. Aliquam eget nisl volutpat, fermentum ante sed, varius tellus. Duis ipsum mi, ornare nec finibus sit amet, lacinia ac ex. Pellentesque fermentum id augue at eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper vel mauris vitae luctus. In volutpat fermentum eros quis dignissim. Mauris quis neque augue. Ut vel mauris mi. Nullam gravida, felis in posuere semper, felis dolor placerat tortor, a laoreet purus purus et dui. Aliquam eget nisl volutpat, fermentum ante sed, varius tellus. Duis ipsum mi, ornare nec finibus sit amet, lacinia ac ex. Pellentesque fermentum id augue at eleifend. \r\n  ', 'PHP, test', 4, 'Draft'),
-(7, 5, 'Example post Number 1000', 'James', '2020-09-25', 'image_2.jpg', 'Some content From Edwin diaz  ', 'Edwin diaz', 4, 'draft'),
-(8, 5, 'Example post Number 200', 'AMIT', '2020-09-25', 'image_3.jpg', 'this is an OOP course with bootstrap', 'bootstrap', 4, 'published');
+(5, 1, 'Web Bootstrap course', 'Edwin Diaz sir', '2020-09-27', 'image_3.jpg', 'this is an awesome post regarding Bootstrap!!!!          ', 'bootstrap,courses,class,great', 7, 'published'),
+(6, 3, 'Best PHP Course Ever', 'Edwin Diaz', '2020-09-25', 'image_2.jpg', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper vel mauris vitae luctus. In volutpat fermentum eros quis dignissim. Mauris quis neque augue. Ut vel mauris mi. Nullam gravida, felis in posuere semper, felis dolor placerat tortor, a laoreet purus purus et dui. Aliquam eget nisl volutpat, fermentum ante sed, varius tellus. Duis ipsum mi, ornare nec finibus sit amet, lacinia ac ex. Pellentesque fermentum id augue at eleifend. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean semper vel mauris vitae luctus. In volutpat fermentum eros quis dignissim. Mauris quis neque augue. Ut vel mauris mi. Nullam gravida, felis in posuere semper, felis dolor placerat tortor, a laoreet purus purus et dui. Aliquam eget nisl volutpat, fermentum ante sed, varius tellus. Duis ipsum mi, ornare nec finibus sit amet, lacinia ac ex. Pellentesque fermentum id augue at eleifend. \r\n  ', 'PHP, test', 6, 'Draft'),
+(8, 5, 'Example post Number 200', 'AMIT', '2020-09-25', 'image_3.jpg', 'this is an OOP course with bootstrap', 'bootstrap', 6, 'draft'),
+(9, 2, 'Example post 1', 'Edwin Diaz', '2020-09-27', 'image_4.jpg', 'this is an awesome javascript course', 'javascript,courses,class,great', 0, 'draft');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(3) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `user_password` varchar(255) NOT NULL,
+  `user_firstname` varchar(255) NOT NULL,
+  `user_lastname` varchar(255) NOT NULL,
+  `user_email` varchar(255) NOT NULL,
+  `user_image` text NOT NULL,
+  `user_role` varchar(255) NOT NULL,
+  `randSalt` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
+(1, 'rico', '123', 'Rico', 'Swave', 'ricoswave@gmail.com', '', 'admin', '');
 
 --
 -- Indexes for dumped tables
@@ -119,6 +151,12 @@ ALTER TABLE `posts`
   ADD PRIMARY KEY (`post_id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -131,12 +169,17 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `comment_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `post_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
