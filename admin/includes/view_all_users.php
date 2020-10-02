@@ -13,7 +13,7 @@
     <tbody>
     
         <?php
-            $query = "SELECT * FROM comments";
+            $query = "SELECT * FROM users";
             $select_posts = mysqli_query($connection, $query);
             while($row = mysqli_fetch_assoc($select_posts)){
                 $comment_id      = $row['comment_id'];    
