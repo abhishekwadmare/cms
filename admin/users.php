@@ -19,12 +19,12 @@
                         </h1>
                         <?php
 
-                            if(isset($_GET['sourse'])){
-                                $sourse = $_GET['sourse'];
+                            if(isset($_GET['source'])){
+                                $source = $_GET['source'];
                             } else {
-                                $sourse='';
+                                $source='';
                             }
-                            switch($sourse){
+                            switch($source){
                                 case 'add_user':
                                     include "includes/add_user.php"; 
                                 break;
