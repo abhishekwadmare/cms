@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Sep 30, 2020 at 06:41 PM
+-- Generation Time: Oct 02, 2020 at 01:56 PM
 -- Server version: 5.7.31-0ubuntu0.18.04.1
 -- PHP Version: 7.2.24-0ubuntu0.18.04.6
 
@@ -111,14 +111,14 @@ INSERT INTO `posts` (`post_id`, `post_category_id`, `post_title`, `post_author`,
 
 CREATE TABLE `users` (
   `user_id` int(3) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `user_password` varchar(255) NOT NULL,
-  `user_firstname` varchar(255) NOT NULL,
-  `user_lastname` varchar(255) NOT NULL,
-  `user_email` varchar(255) NOT NULL,
-  `user_image` text NOT NULL,
-  `user_role` varchar(255) NOT NULL,
-  `randSalt` varchar(255) NOT NULL
+  `username` varchar(255) DEFAULT NULL,
+  `user_password` varchar(255) DEFAULT NULL,
+  `user_firstname` varchar(255) DEFAULT NULL,
+  `user_lastname` varchar(255) DEFAULT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `user_image` text,
+  `user_role` varchar(255) DEFAULT NULL,
+  `randSalt` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -126,7 +126,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_image`, `user_role`, `randSalt`) VALUES
-(1, 'rico', '123', 'Rico', 'Swave', 'ricoswave@gmail.com', '', 'admin', '');
+(1, 'rico', '123', 'Rico', 'Swave', 'ricoswave@gmail.com', '', 'admin', ''),
+(2, 'peterson', 'Peterson@123', 'William', 'Peterson', 'peterson@gmail.com', NULL, 'subscriber', NULL);
 
 --
 -- Indexes for dumped tables
@@ -179,7 +180,7 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
