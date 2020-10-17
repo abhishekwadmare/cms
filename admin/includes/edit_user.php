@@ -61,7 +61,7 @@ if(isset($_POST['edit_user'])){
 
 <form action="" method="post" enctype="multipart/form-data">
 <div class="form-group">
-        <label for="first_name"> </label>
+        <label for="first_name">Firstname </label>
         <input value="<?php echo $user_firstname; ?>" type="text" class="form-control" name="user_firstname">
     </div>
 
