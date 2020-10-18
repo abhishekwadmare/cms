@@ -28,7 +28,10 @@ if(isset($_POST['create_post'])){
 
 
 ?>
-<div id="editor"></div>
+
+
+
+
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">Post Title</label>
