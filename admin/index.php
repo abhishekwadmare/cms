@@ -136,6 +136,26 @@
                     </div>
                 </div>
                 <!-- /.row -->
+                <?php 
+                    $query = "SELECT * FROM posts where post_status = 'draft'";
+                    $select_all_draft_posts = mysqli_query($connection, $query);
+                    $posts_draft_count = mysqli_num_rows($select_all_draft_posts);
+
+                    $query = "SELECT * FROM comments where comment_status = 'unapproved'";
+                    $unapproved_comments_query = mysqli_query($connection, $query);
+                    $unapproved_comments_count = mysqli_num_rows($unapproved_comments_query);
+
+                    $query = "SELECT * FROM users where user_role = 'subscriber'";
+                    $select_all_subscribers = mysqli_query($connection, $query);
+                    $subscribers_count = mysqli_num_rows($select_all_subscribers);
+                           
+                
+                ?>
+
+
+
+
+
                 <div class="row">
                     <script type="text/javascript">
                         google.charts.load('current', {'packages':['bar']});
@@ -145,10 +165,22 @@
                             var data = google.visualization.arrayToDataTable([
                             ['Date', 'Count'],
 
+                            <?php
+
+                                $element_text = ['Active Posts','Draft Post', 'Comments', 'Pending Comments', 'Users', 'Subscribers', 'Categories'];
+                                $element_count = [$posts_count, $posts_draft_count, $comments_count, $unapproved_comments_count, $users_count, $subscribers_count, $categories_count];
+                                
+                                for($i = 0; $i < 7; $i++){
+                                    
+                                    echo "['{$element_text[$i]}'" . ", " . "{$element_count[$i]}], "; 
+
+                                }
+                            
+                            
+                            
+                            ?>
 
 
-
-                            ['Post', 1000],
                             ]);
 
                             var options = {
